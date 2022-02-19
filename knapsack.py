@@ -22,8 +22,8 @@ def recurse(v, w, c, i, memo):
     return memo[i][c]
 
 
-w = [2, 3, 6, 8, 9]
-v = [2, 5, 7, 9, 10]
+w = [2, 3, 6, 8, 9, 11]
+v = [2, 5, 7, 9, 10, 12l]
 c = 10
 
 print(knapsack(v, w, c))
