@@ -1,8 +1,7 @@
 # howSum memoized
 def howSum(target, numbers, memo={}):
     if target in memo:
-        # return memo[target]
-        pass
+        return memo[target]
     if target == 0:
         return []
     if target < 0:
@@ -18,7 +17,6 @@ def howSum(target, numbers, memo={}):
     return None
 
 
-t = 3000
-nums = [7, 14]
-
+t = 1234
+nums = [4, 5, 7]
 print(howSum(t, nums))
