@@ -4,6 +4,7 @@ class Node:
     self.left = None
     self.right = None
 
+    
 def depthFirstValues_iterative(root):
   results = []
   stack = [root]
@@ -22,6 +23,7 @@ def depthFirstValues_iterative(root):
 
   return results
 
+
 def depthFirstValues_recursive(root):
   if root is None:
     return []
@@ -30,6 +32,8 @@ def depthFirstValues_recursive(root):
   rightResults = depthFirstValues_recursive(root.right)
 
   return [root.val] + leftResults + rightResults
+
+#=======================================================
 
 a = Node('A')
 b = Node('B')
@@ -42,6 +46,8 @@ a.right = c
 b.left = d
 b.right = e
 c.right = f
+
+#-------------------------------------------------------
 
 res1 =  depthFirstValues_iterative(a)
 print(res1)
