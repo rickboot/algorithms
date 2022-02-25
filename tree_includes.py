@@ -8,10 +8,9 @@ class Node:
         self.right = None
 
 
-def tree_includes(root, target):
+def tree_includes_BFS(root, target):
     queue = [root]
 
-    print(queue)
     while len(queue) > 0:
         cur = queue.pop(0)
 
@@ -25,8 +24,23 @@ def tree_includes(root, target):
     return False
 
 
-# ----------------------
+def tree_includes_DFS(root, target):
+    stack = [root]
 
+    while len(stack) > 0:
+        cur = stack.pop()
+
+        if cur.val == target:
+            return True
+        if cur.left is not None:
+            stack.append(cur.left)
+        if cur.right is not None:
+            stack.append(cur.right)
+
+    return False
+
+
+# ----------------------
 
 a = Node('A')
 b = Node('B')
@@ -40,6 +54,10 @@ b.left = d
 b.right = e
 c.right = f
 
+target = 'A'
+result = tree_includes_BFS(a, target)
+print(result)
+
 target = 'G'
-result = tree_includes(a, target)
+result = tree_includes_DFS(a, target)
 print(result)
