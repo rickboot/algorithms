@@ -34,7 +34,9 @@ def treeFindMin_BFS_iterative(root):
 def treeFindMin_DFS_recursive(root):
   if root is None: return float('inf')
 
-  return min(root.val, treeFindMin_DFS_recursive(root.left), treeFindMin_DFS_recursive(root.right))
+  leftMin = treeFindMin_DFS_recursive(root.left)
+  rightMin = treeFindMin_DFS_recursive(root.right)
+  return min(root.val, leftMin, rightMin)
 
 
 #----------------------------------
