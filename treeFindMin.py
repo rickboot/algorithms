@@ -25,6 +25,8 @@ def treeFindMin_iterative(root):
   return minimum
 
 
+#----------------------------------
+
 a = Node(3)
 b = Node(11)
 c = Node(4)
