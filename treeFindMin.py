@@ -5,24 +5,37 @@ class Node:
     self.right = None
 
 
-def treeFindMin_recursive(root):
-  if root is None: return float('inf')
+def treeFindMin_DFS_iterative(root):
+  minimum = float('inf')
+  stack = [root]
 
-  smaller = min( treeFindMin_recursive(root.left), treeFindMin_recursive(root.right) )
-  return min(smaller, root.val) 
+  while len(stack):
+    cur = stack.pop()
+    minimum = min(minimum, cur.val)
+    if cur.left is not None: stack.append(cur.left)
+    if cur.right is not None: stack.append(cur.right)
+
+  return minimum
 
 
-def treeFindMin_iterative(root):
-  minimum = float('-inf')
+def treeFindMin_BFS_iterative(root):
+  minimum = float('inf')
   queue = [root]
 
   while len(queue):
     cur = queue.pop(0)
-    minimum = min(root.val, cur.val)
+    minimum = min(minimum, cur.val)
     if cur.left is not None: queue.append(cur.left)
     if cur.right is not None: queue.append(cur.right)
 
   return minimum
+
+
+def treeFindMin_DFS_recursive(root):
+  if root is None: return float('inf')
+
+  smaller = min(treeFindMin_DFS_recursive(root.left), treeFindMin_DFS_recursive(root.right))
+  return min(smaller, root.val) 
 
 
 #----------------------------------
@@ -40,8 +53,14 @@ b.right = e
 c.right = f
 
 
-result = treeFindMin_recursive(a)
+result = treeFindMin_BFS_iterative(a)
 print(result)
 
-result = treeFindMin_iterative(a)
+result = treeFindMin_DFS_iterative(a)
 print(result)
+
+result = treeFindMin_DFS_recursive(a)
+print(result)
+
+
+
